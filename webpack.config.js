@@ -6,10 +6,13 @@ var DIST_DIR = path.resolve(__dirname, 'client/dist');
 var SRC_DIR = path.resolve(__dirname, 'client/src');
 
 var config = {
-  entry: SRC_DIR + '/index.jsx',
+  entry: {
+    app: SRC_DIR + '/index.jsx',
+    worker: SRC_DIR + '/worker.js'
+  },
   output: {
     path: DIST_DIR,
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   resolve: {
     extensions:['.js', '.jsx']
@@ -36,7 +39,8 @@ var config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: SRC_DIR + '/index.html'
+      template: SRC_DIR + '/index.html',
+      excludeChunks: ['worker']
     })
   ],
   devtool: "source-map"

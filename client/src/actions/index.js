@@ -1,5 +1,5 @@
 import { loadAntsListAction, setAntsListAction } from './data.action';
-import { dataLoading, initAntsStatsAction } from './ui.action';
+import { dataLoading, initAntsStatsAction, updateAntStatsAction } from './ui.action';
 import { configAction } from './config.action';
 
 export {
@@ -7,5 +7,6 @@ export {
   loadAntsListAction,
   setAntsListAction,
   dataLoading,
-  initAntsStatsAction
+  initAntsStatsAction,
+  updateAntStatsAction
 }

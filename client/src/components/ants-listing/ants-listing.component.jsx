@@ -6,9 +6,13 @@ import * as actionCreators from '../../actions';
 
 import { Loader, AntsList } from '../'
 
+import { statisticsWorker } from '../../services/statistics.service';
+
 import styles from './ants-listing.component.scss';
 
 class AntsListing extends React.Component {
+
+  statisticsWorker = null;
 
   static propTypes = {
     isDataLoading: PropTypes.bool.isRequired,
@@ -22,12 +26,18 @@ class AntsListing extends React.Component {
     antsStats: {}
   }
 
+  constructor () {
+    super();
+    this.statisticsWorker = statisticsWorker();
+  }
+
   componentDidMount() {
     this.props.actions.loadAntsListAction();
   }
 
   handleStatisticsStart = () => {
     console.log('start');
+    this.statisticsWorker.start(this.props.antsList);
   }
 
   render() {

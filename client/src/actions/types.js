@@ -5,7 +5,8 @@ import {
 
 import {
   DATA_LOADING,
-  INIT_ANTS_STATS
+  INIT_ANTS_STATS,
+  UPDATE_ANT_STATS
 } from './ui.action';
 
 import { CONF_LOAD } from './config.action';
@@ -15,5 +16,6 @@ export {
   DATA_LOADING,
   LOAD_ANTS_LIST,
   SET_ANTS_LIST,
-  INIT_ANTS_STATS
+  INIT_ANTS_STATS,
+  UPDATE_ANT_STATS
 }
