@@ -22,7 +22,7 @@ const sideEffect = store => next => action => {
 }
 
 const actionLogger = store => next => action => {
-  console.log(action.type, store.getState())
+  // console.log(action.type, store.getState())
   return next(action);
 }
 
