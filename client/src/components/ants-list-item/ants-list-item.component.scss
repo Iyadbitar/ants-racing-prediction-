@@ -42,8 +42,18 @@
   overflow: hidden;
 }
 :local .status {
-  background-color: #ccc;
+  color: #fff;
   font-size: 0.7em;
   padding: 5px 10px;
   font-weight: 600;
+  @include mxRoundCorners(3px);
+}
+:local .waiting {
+  background-color: #A80025;
+}
+:local .progress {
+  background-color: #A88600;
+}
+:local .done {
+  background-color: #00A844;
 }

@@ -26,25 +26,31 @@ class AntsListing extends React.Component {
     antsStats: {}
   }
 
-  constructor () {
-    super();
-    this.statisticsWorker = statisticsWorker();
-  }
-
   componentDidMount() {
+    this.statisticsWorker = statisticsWorker(this.props.actions);
     this.props.actions.loadAntsListAction();
   }
 
+  componentWillUnmount() {
+    this.statisticsWorker.terminate();
+  }
+
   handleStatisticsStart = () => {
-    console.log('start');
+    this.props.antsList.forEach(
+      (ant) => this.props.actions.updateAntStatsAction(ant.id, { status: 'In Progress', result: null})
+    )
     this.statisticsWorker.start(this.props.antsList);
+  }
+
+  isButtonDisabled() {
+    return Object.keys(this.props.antsStats).reduce( (acc, antId) => acc || this.props.antsStats[antId].status === 'In Progress', false)
   }
 
   render() {
     return <div className={styles['videos']}>
       <h1>List</h1>
-      <div>
-        <button onClick={this.handleStatisticsStart}>Start Statistics Callculations</button>
+      <div className={styles['button']}>
+        <button className="btn btn-primary" disabled={this.isButtonDisabled()} onClick={this.handleStatisticsStart}>Start Statistics Callculations</button>
       </div>
       <AntsList ants={this.props.antsList} stats={this.props.antsStats}/>
       <Loader isVisible={this.props.isDataLoading}/>

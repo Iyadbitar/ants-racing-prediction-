@@ -12,8 +12,7 @@ function generateAntWinLikelihoodCalculator() {
 }
 
 const calculatorCallBack = (ant) => (likelihoodOfAntWinning) => {
-  self.postMessage({ type: STAT_RESULT, ant, likelihoodOfAntWinning })
-  // console.log(ant.name, likelihoodOfAntWinning);
+  self.postMessage({ type: STAT_RESULT, ant, likelihoodOfAntWinning });
 }
 
 self.addEventListener('message', function(e) {

@@ -2,17 +2,17 @@ var worker;
 export const START = 'START';
 export const STAT_RESULT = 'STAT_RESULT';
 
-export function statisticsWorker() {
+export function statisticsWorker({ updateAntStatsAction }) {
+
   if (!worker) {
       worker = new Worker('worker.bundle.js');
+      worker.postMessage('starting');
   }
-
-  worker.postMessage('starting');
 
   worker.addEventListener('message', (e) => {
     switch(e.data.type) {
       case STAT_RESULT:
-        console.log(e.data.ant.id, e.data.likelihoodOfAntWinning) 
+        updateAntStatsAction(e.data.ant.id, { status: 'Done', result: e.data.likelihoodOfAntWinning });
         break;
     }
   });
@@ -22,8 +22,12 @@ export function statisticsWorker() {
     worker.postMessage({ants, type});
   }
 
+  const terminate = () => {
+    worker.terminate();
+  }
+
   return {
-    worker,
-    start
+    start,
+    terminate
   }
 }
