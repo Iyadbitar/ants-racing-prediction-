@@ -10,7 +10,7 @@ To run the application please do the following
 The app will run on http://localhost:8080/
 
 ### Application Structure
-The app is been built as React/Redux.
+I built the app as React/Redux.
 
 To handle the prediction calculations I used a "web worker" architecture where all
 the code that handle prediction calculation is separated in "worker.js" file and
