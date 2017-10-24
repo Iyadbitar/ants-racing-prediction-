@@ -20,7 +20,7 @@ fornt-end app performance will not be affected as the worker will be launched in
 separate thread.
 
 #### Challenge
-[a link to challenge]https://gist.github.com/sgwilym/fe3218f9555a3bef6d07d823a36755c1
+[a link]https://gist.github.com/sgwilym/fe3218f9555a3bef6d07d823a36755c1
 
 ### Important Notes
 I wish I have more time to do all the test requirements. I hope this will give good
