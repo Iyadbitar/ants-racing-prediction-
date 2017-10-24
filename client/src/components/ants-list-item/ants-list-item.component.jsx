@@ -36,7 +36,7 @@ export default class AntsListItem extends React.Component {
   render() {
     //http://dreamicus.com/data/ant/ant-05.jpg
     return <div className={styles['ant']}>
-      <img className={styles['image']} src="http://imperiousfm.com/wp-content/uploads/edg-api-uploads/image_1489841458.jpg" alt={this.props.name} />
+      <img className={styles['image']} src="http://dreamicus.com/data/ant/ant-05.jpg" alt={this.props.name} />
       <div className={styles['content']}>
         <h4 className={styles['heading']}>{this.props.name}</h4>
         <p className={styles['text']}>
@@ -46,7 +46,7 @@ export default class AntsListItem extends React.Component {
         </p>
         {
           null !== this.props.statistics
-          ? <span className={this.getCssClass(this.props.statisticsStatus)}><strong>Statistics: </strong>{Math.round(this.props.statistics * 100)}%</span>
+          ? <span className={this.getCssClass(this.props.statisticsStatus)}><strong>Likelihood To Win: </strong>{Math.round(this.props.statistics * 100)}%</span>
           : <span className={this.getCssClass(this.props.statisticsStatus)}>{this.props.statisticsStatus}</span>
         }
       </div>

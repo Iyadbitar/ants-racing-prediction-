@@ -48,7 +48,7 @@ class AntsListing extends React.Component {
 
   render() {
     return <div className={styles['videos']}>
-      <h1>List</h1>
+      <h1>Racing Ants List</h1>
       <div className={styles['button']}>
         <button className="btn btn-primary" disabled={this.isButtonDisabled()} onClick={this.handleStatisticsStart}>Start Statistics Callculations</button>
       </div>
